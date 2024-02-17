@@ -3,7 +3,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 # Load data from GitHub
-data = pd.read_csv('data.csv')
+data = pd.read_csv('data-kejadian-bencana=banjir.csv')
 
 # Handling missing or zero values in 'nilai_kerugian' column
 data.dropna(subset=['nilai_kerugian'], inplace=True)
