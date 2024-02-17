@@ -3,7 +3,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 # Load data from GitHub
-url = 'https://raw.githubusercontent.com/username/repository/main/data-kejadian-bencana-banjir.csv'
+url = 'https://github.com/logical030/UAS2024/blob/main/data-kejadian-bencana-banjir.csv'
 data = pd.read_csv(url)
 
 # Handling missing or zero values in 'nilai_kerugian' column
