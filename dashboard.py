@@ -2,12 +2,12 @@ import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
 
+# Load data from GitHub
+url = 'https://raw.githubusercontent.com/username/repository/main/data-kejadian-bencana-banjir.csv'
+data = pd.read_csv(url)
 
-@st.cache_data
-#Load Data CSV
-def load_data(url) :
-    df = pd.read_csv(url)
-    return df
+# Handling missing or zero values in 'nilai_kerugian' column
+data['nilai_kerugian'] = data['nilai_kerugian'].replace(0, data['nilai_kerugian'].mean())
 
 # Pertanyaan 1: Total Nilai Kerugian per Wilayah
 st.subheader('Pertanyaan 1: Total Nilai Kerugian per Wilayah')
