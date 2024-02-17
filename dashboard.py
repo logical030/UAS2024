@@ -3,11 +3,12 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 # Load data from GitHub
-url = 'https://github.com/logical030/UAS2024/blob/main/data-kejadian-bencana-banjir.csv'
+url = 'https://raw.githubusercontent.com/username/repository/main/data-kejadian-bencana-banjir.csv'
 data = pd.read_csv(url)
 
 # Handling missing or zero values in 'nilai_kerugian' column
-data['nilai_kerugian'] = data['nilai_kerugian'].replace(0, data['nilai_kerugian'].mean())
+data.dropna(subset=['nilai_kerugian'], inplace=True)
+data = data[data['nilai_kerugian'] != 0]
 
 # Pertanyaan 1: Total Nilai Kerugian per Wilayah
 st.subheader('Pertanyaan 1: Total Nilai Kerugian per Wilayah')
