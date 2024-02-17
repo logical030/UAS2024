@@ -2,8 +2,12 @@ import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
 
-# Load data
-data = pd.read_csv('data-kejadian-bencana-banjir.csv')
+
+@st.cache_data
+#Load Data CSV
+def load_data(url) :
+    df = pd.read_csv(url)
+    return df
 
 # Pertanyaan 1: Total Nilai Kerugian per Wilayah
 st.subheader('Pertanyaan 1: Total Nilai Kerugian per Wilayah')
